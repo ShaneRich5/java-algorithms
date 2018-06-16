@@ -1,5 +1,7 @@
 package com.algorithms;
 
+import java.util.Arrays;
+
 /**
  * Maintains a forest using an array to maintain
  * connected components
@@ -9,6 +11,7 @@ public class QuickUnion implements UnionFind {
     private int ids[];
 
     public QuickUnion(int n) {
+        ids = new int[n];
         for (int i = 0; i < n; i++) {
             ids[i] = i;
         }
@@ -36,5 +39,10 @@ public class QuickUnion implements UnionFind {
         while (ids[index] != index)
             index = ids[index];
         return index;
+    }
+
+    @Override
+    public String toString() {
+        return Arrays.toString(ids);
     }
 }

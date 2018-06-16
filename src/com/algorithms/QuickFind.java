@@ -1,10 +1,13 @@
 package com.algorithms;
 
+import java.util.Arrays;
+
 public class QuickFind implements UnionFind {
 
     private int[] ids;
 
     public QuickFind(int n) {
+        ids = new int[n];
         for (int i = 0; i < n; i++) {
             ids[i] = i;
         }
@@ -30,5 +33,10 @@ public class QuickFind implements UnionFind {
     @Override
     public int count() {
         return ids.length;
+    }
+
+    @Override
+    public String toString() {
+        return Arrays.toString(ids);
     }
 }
