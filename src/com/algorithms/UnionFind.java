@@ -17,15 +17,7 @@ public interface UnionFind {
      * @param q an integer representing a node
      * @return boolean
      */
-    boolean connect(int p, int q);
-
-    /**
-     * Component identifier for p (0 to N - 1)
-     *
-     * @param p an integer representing a node
-     * @return integer
-     */
-    int find(int p);
+    boolean connected(int p, int q);
 
     /**
      * Number of components
