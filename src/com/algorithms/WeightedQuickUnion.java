@@ -13,6 +13,7 @@ public class WeightedQuickUnion implements UnionFind {
 
         for (int i = 0; i < n; i++) {
             ids[i] = i;
+            size[i] = 1;
         }
     }
 
@@ -45,8 +46,10 @@ public class WeightedQuickUnion implements UnionFind {
     }
 
     private int root(int index) {
-        while (ids[index] != index)
+        while (ids[index] != index) {
+            ids[index] = ids[ids[index]];
             index = ids[index];
+        }
         return index;
     }
 
