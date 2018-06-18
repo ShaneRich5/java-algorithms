@@ -10,7 +10,8 @@ public class Main {
         UnionFind quickUnion = new QuickUnion(ELEMENT_COUNT);
 
         Random random = new Random();
-        for (int i = 0; i < 10000; i++) {
+
+        for (int i = 0; i < 1000; i++) {
             int first = random.nextInt(ELEMENT_COUNT);
             int second = random.nextInt(ELEMENT_COUNT);
 
@@ -18,8 +19,23 @@ public class Main {
             quickUnion.union(first, second);
         }
 
+        System.out.println("Quick Find array: " + quickFind);
+        System.out.println("Quick Union array: " + quickUnion);
 
+        int pointOne = random.nextInt(ELEMENT_COUNT);
+        int pointTwo = random.nextInt(ELEMENT_COUNT);
 
-        System.out.println("current time: " + System.currentTimeMillis());
+        System.out.println("Point A (" + pointOne + ") Point B (" + pointTwo + ")");
+
+        long quickFindStartTime = System.currentTimeMillis();
+        boolean quickFindResult = quickFind.connected(pointOne, pointTwo);
+        long quickFindTotalTime = quickFindStartTime - System.currentTimeMillis();
+        System.out.println("Quick Find\nResult: " + quickFindResult + "\nRuntime: " + quickFindTotalTime);
+
+        long quickUnionStartTime = System.currentTimeMillis();
+        boolean quickUnionResult = quickUnion.connected(pointOne, pointTwo);
+        long quickUnionTotalTime = quickUnionStartTime - System.currentTimeMillis();
+        System.out.println("Quick Find\nResult: " + quickUnionResult + "\nRuntime: " + quickUnionTotalTime);
+
     }
 }
